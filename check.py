@@ -25,7 +25,7 @@ for ds_name in response_dict:
   ds_metadata = json.loads(response.read())
   url =  ds_metadata['resources'][0]['url']
     
-  ret = os.system("curl -X GET --output /dev/null --silent --head --fail \"" + url + "\"")
+  ret = os.system("curl -X HEAD --output /dev/null --silent --head --fail \"" + url + "\"")
   errorCode = (ret & int('0xff00', 16)) >> 8	#special return code from os.system, see python docs
     
   #print msg
